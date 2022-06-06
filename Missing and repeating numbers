@@ -1,0 +1,29 @@
+#include <bits/stdc++.h> 
+
+pair<int,int> missingAndRepeating(vector<int> &a, int n)
+{
+	// Write your code here 
+    long long sum= n*(n+1);
+    sum/=2;
+    for(int i=0;i<n;i++)
+    {
+        sum-=a[i];
+    }
+    int miss;
+    int i=0,d;
+    while(i<n)
+    {
+        if(a[i]==i+1)i++;
+        else
+        {  if(a[i]==a[a[i]-1])
+               {
+                   d=a[i];break;
+               }
+               else swap(a[i],a[a[i]-1]);
+               
+           }
+          
+        }
+    miss=sum+d;
+	return {miss,d};
+}
