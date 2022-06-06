@@ -1,0 +1,15 @@
+#include <bits/stdc++.h> 
+int findDuplicate(vector<int> &a, int n){
+	// Write your code here.
+    sort(a.begin(),a.end());
+    int prev=a[0];
+    
+    for(int i=1;i<n;i++)
+    {
+        if(prev==a[i])
+        {
+            return prev;
+        }
+        else prev=a[i];
+    }
+}
