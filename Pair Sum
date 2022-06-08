@@ -1,0 +1,72 @@
+#include <bits/stdc++.h> 
+// vector<vector<int>> pairSum(vector<int> &a, int s){
+//    // Write your code here.
+//     map<int,int> mp;
+//     int n= a.size();
+//     for(int i=0;i<n;i++)
+//     {
+//         mp[a[i]]++;
+//     }
+//     bool fl=true;
+    
+//     vector<pair<int,int>> v;
+//     while(!mp.empty())
+//     {
+//         auto x= mp.begin();
+//         int target= s-x->first;
+//         if(mp.find(target)!=mp.end())
+//         {
+//             int a=x->first;
+//             if(a>target) swap(a,target);
+//             v.push_back({a,target});
+//             mp[a]--;
+//             if(mp[a]==0) mp.erase(a);
+//             mp[target]--;
+//             if(mp[target]==0) mp.erase(target);
+//         }
+//         else
+//         {
+//             mp.erase(x->first);
+//         }
+//     }
+//     sort(v.begin(),v.end());
+//     vector<vector<int>> ans(v.size());
+//     for(int i=0;i<v.size();i++)
+//     {
+//         ans[i].push_back(v[i].first);
+//         ans[i].push_back(v[i].second);
+//     }
+// }
+vector<vector<int>> pairSum(vector<int> &arr, int s){
+
+   vector<vector<int>> ans;
+
+   for(int i=0; i<arr.size(); i++){
+
+       for(int j=i+1; j<arr.size(); j++){
+
+           if(arr[i]+arr[j]==s){
+
+               vector<int> temp;
+
+               temp.push_back(min(arr[i],arr[j]));
+
+               temp.push_back(max(arr[i],arr[j]));
+
+               ans.push_back(temp);
+
+               
+
+               
+
+           }
+
+       }
+
+   }
+
+   sort(ans.begin(), ans.end());
+
+   return ans;
+
+}
